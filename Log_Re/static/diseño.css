@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:#223243;
+}
+
+.container
+{
+    padding: 40px;
+    border: 8px solid #234643;
+    border-radius: 20px;
+    box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
+    5px 5px 15px rgba(0,0,0,0.35),
+    inset -5px -5px 15px rgba(255,255,255,0.1),
+    inset 5px 5px 15px rgba(0,0,0,0.35);
+}
+
+.container .form .pas,
+.container .form
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px
+}
+
+.container .form h2
+{
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.container .form .inputBox
+{
+    position: relative;
+    width: 300px;
+}
+
+.container .form .inputBox input
+{
+    padding: 12px 10px 12px 48px;
+    width: 100%;
+    background: #223243;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #fff;
+    font-weight: 300;
+    border-radius: 25px;
+    font-size: 1em;
+    box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
+    5px 5px 15px rgba(0,0,0,0.35);
+    outline: none;
+}
+
+.container .form .inputBox span[class='spa']
+{
+    position: absolute;
+    left: 0;
+    padding: 12px 10px 12px 48px;
+    pointer-events: none;
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.5);
+    transition: 0.5s;
+}
+
+
+.container .form .inputBox input:valid ~ span[class='spa'],
+.container .form .inputBox input:focus ~ span[class='spa']
+{
+    color: #00dfc4;
+    border: 1px solid #00dfc4;
+    background: #223243;
+    transform: translateX(25px) translateY(-7px);
+    font-size: 0.6em;
+    padding: 0 8px;
+    border-radius: 10px;
+    letter-spacing: 0.1em;
+}
+
+.container .form .inputBox input:valid,
+.container .form .inputBox input:focus
+{
+    border: 1px solid #00dfc4;
+
+}
+
+.container .form .inputBox i[id='emoji']
+{
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 25px;
+    padding: 4px;
+    color: #00dfc4;
+    border-right: 1px solid #00dfc4;
+}
+
+.container .form .inputBox input[type='submit']
+{
+    background: #00dfc4;
+    color:#223243;
+    padding: 10px 0;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: -5px -5px 15px rgba(240,240,240,0.3),
+    5px 5px 15px rgba(0,0,0,0.4),
+    inset -5px -5px 15px rgba(240,240,240,0.3),
+    inset 5px 5px 15px rgba(0,0,0,0.4);
+}
+
+.container .form p
+{
+    color: rgba(255,255,255,0.8);
+    font-size: 0.8em;
+    font-weight: 600
+}
+
+.container .form p a
+{
+    font-weight: 600;
+    color:aliceblue;
+    padding-left: 12px;
+}
+
+
+.container .form.signin .pas .links p
+{
+    font-size: 0.8em;
+    font-weight: 600;
+    color:aliceblue;
+    padding: 10px;
+}
+
+.container .form.signin .pas .links
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.form.signin .pass p a
+{
+    font-size:15px ;
+}
+
+
+.input-control .error {
+    padding-left: 40px;
+    color: #ff3860;
+}
+
+.container .form .box .inputBox span[id='toggleBtn'],
+.container .form .box .inputBox span[id='toggleBtn1']{
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    right: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.container .form .box .inputBox span[id='toggleBtn']::before,
+.container .form .box .inputBox span[id='toggleBtn1']::before
+{
+    content: '\f06e';
+    font-family: fontAwesome, serif;
+}
+
+
+.container .form .box .inputBox span[id='toggleBtn'].hide::before,
+.container .form .box .inputBox span[id='toggleBtn1'].mostrar::before
+{
+    content: '\f070';
+    font-family: fontAwesome,serif;
+}
+
+
+
+.container .form .box .validacion
+{
+    background: #626b75;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.container .form .box .validacion ul
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container .form .box .validacion ul li
+{
+    position: relative;
+    list-style: none;
+    color: #fff;
+    font-size: 0.8em;
+    transition: 0.5s;
+}
+
+.container .form .box .validacion ul li.valid
+{
+    color: lime;
+}
+
+.container .form .box .validacion ul li::before
+{
+    content: '\f192';
+    font-family: fontAwesome, serif;
+    width: 20px;
+    height: 10px;
+    display: inline-flex;
+}
+
+.container .form .box .validacion ul li.valid::before
+{
+    content: '\f00c';
+    color: lime;
+}

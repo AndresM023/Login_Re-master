@@ -1,0 +1,13 @@
+{% extends 'login.html' %}
+{% load static %}
+
+    {% block title %}
+    <title>Página Principal</title>
+    {% endblock %}
+
+    {% block main %}
+
+        <a href="{% url 'logout' %}">Log Out</a>
+
+
+    {% endblock %}
