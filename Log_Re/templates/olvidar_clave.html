@@ -9,18 +9,26 @@
 
 
     {% block main %}
+
         <div class="container">
-            <form class="form pass" method="Post">
+            <form class="form pass" method="Post" >
                 {% csrf_token %}
+                 <div style='background: pink;opacity: 0.7; font-size: 1.2em'>
+                    {% if messages %}
+                        {% for message in messages %}
+                          {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                 </div>
                 <div class="form olvidar">
                     <h2>Contraseña Olvidada</h2>
                     <div class="inputBox">
-                        <input type="text" required>
+                        {{ form.usuario }}
                         <i class="fa-regular fa-envelope" id="emoji"></i>
                         <span class='spa'>Username</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" value='Enviar correo' class="enviar">
+                        <input type="submit" value='Verificar' class="enviar">
                     </div>
                     <div class="links">
                         <p><a href="{% url 'login' %}" class="volver">Regresar</a></p>

@@ -40,8 +40,8 @@ class FormularioRegistro(forms.ModelForm):
         Excepciones:
         ValidationError - cuando las contraseñas no son iguales muestra un mensaje de error.
         """
-        password1 = self.cleaned_data['password1']
-        password2 = self.cleaned_data['password2']
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError('Las claves no coinciden')
@@ -53,3 +53,43 @@ class FormularioRegistro(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+
+class ForgetPasswordForm(forms.Form):
+    usuario = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs=
+        {'type':'text',
+         'id':'us'}))
+
+
+
+class CambiarPasswordForm(forms.Form):
+    password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(
+        attrs={'type': 'password',
+               'id': 'nuevaclave',
+               'required': 'required'
+               }))
+
+    password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(
+        attrs={'type': 'password',
+               'id': 'newp2',
+               'required': 'required'
+               }))
+
+    def clean_password2(self):
+        """
+        Validar contraseñas
+        Método que valida que ambas contraseñas sean iguales, antes de ser encriptadas y guardadas
+        en la base de datos. Se retorna la clave válida.
+
+        Excepciones:
+        ValidationError - cuando las contraseñas no son iguales muestra un mensaje de error.
+        """
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError('Las claves no coinciden')
+        return password2
+

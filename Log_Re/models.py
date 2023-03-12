@@ -34,13 +34,13 @@ class Usuario(AbstractBaseUser):
     apellidos = models.CharField(max_length=200, blank=True, null=True)
     usuario_activo = models.BooleanField(default=True)
     usuario_administrador = models.BooleanField(default=False)
-    object = UsuarioManager()
+    objects = UsuarioManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
     def __str__(self):
-        return f'{self.username},{self.apellidos}'
+        return f'{self.username}'
 
     def has_perm(self, perm, obj=None):
         return True
